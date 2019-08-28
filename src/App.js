@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import Button from './components/Button';
 
-class App extends Component {
-  constructor(props){
+export default class App extends Component {
+  constructor(){
     super();
     this.state = {
       count: 0
     }
   }
 
-  incrementCounter = () => {
+  incrementCount = () => {
     this.setState({
       count: this.state.count + 1
     })
   }
   
-  decrementCounter = () => {
+  decrementCount = () => {
     this.setState({
       count: this.state.count - 1
     })
@@ -28,16 +28,13 @@ class App extends Component {
         <h2>Count: { count }</h2>
         <Button 
           title = { "+" }
-          task = { this.incrementCounter }
+          task = { () => this.incrementCount() }
         />
         <Button
           title = { "-" }
-          task = { this.decrementCounter }
+          task = { () => this.decrementCount() }
         />
-
       </div>
     );
   }
 }
-
-export default App;
